@@ -667,6 +667,8 @@ func (c *Clique) CalcDifficulty(chain consensus.ChainReader, time uint64, parent
 // that a new block should have based on the previous blocks in the chain and the
 // current signer.
 func CalcDifficulty(snap *Snapshot, signer common.Address) *big.Int {
+	log.Info("CalcDifficulty in clique")
+	return big.NewInt(1)
 	if snap.inturn(snap.Number+1, signer) {
 		return new(big.Int).Set(diffInTurn)
 	}
